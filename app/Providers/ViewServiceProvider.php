@@ -2,7 +2,6 @@
  
 namespace App\Providers;
 
-use App\Http\Views\Composers\CartComposer;
 use App\Http\Views\Composers\MenuComposer;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -23,7 +22,6 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('layout.header',MenuComposer::class);
-        View::composer('layout.cart',CartComposer::class);
         
     }
 }

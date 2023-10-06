@@ -21,8 +21,7 @@ class Product extends Model
     ];
 
     public function menu(){
-        return $this->hasOne(Menu::class,'id','menu_id')
-        ->withDefault(['name'=>'']);
+        return $this->hasOne(Menu::class,'id','menu_id');
     }
     public function hang(){
         return $this->hasOne(Hang::class,'id','hang_id');

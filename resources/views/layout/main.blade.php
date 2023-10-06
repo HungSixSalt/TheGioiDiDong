@@ -14,6 +14,8 @@
     <!-- Cart -->
     @include('layout.cart')
 
+
+
     <!-- Slider -->
     <section class="section-slide">
         <div class="wrap-slick1">
@@ -104,7 +106,6 @@
         </div>
     </section>
 
-    
 
     <!-- Banner -->
     <div class="sec-banner bg0 p-t-80 p-b-50">
@@ -604,7 +605,7 @@
             
         </div>
     </section>
-        
+
 
     <!-- Footer -->
     @include('layout.footer')
