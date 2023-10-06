@@ -80,20 +80,4 @@ class ProductService{
         }
         return false;
     }
-
-    public function show($id){
-        return Product::where('id', $id)
-        ->where('active',1)
-        ->with('menu')
-        ->with('hang')
-        ->firstOrFail();
-    }
-
-    public function getSimilarProducts($product) {
-        $menuId = $product->menu_id;
-        return 
-        Product::where('menu_id', $menuId)
-        ->where('id', '!=', $product->id)    
-        ->get();
-    }
 }
