@@ -24,7 +24,7 @@ class ProductService{
         ){
             Session::flash('error','Giá giảm phải nhỏ hơn giá gốc');
             return false;
-        }
+        }else
         if($request->input('price_sale')!=0 && (int)$request->input('price')==0){
             Session::flash('error','Vui lòng nhập giá gốc');
             return false;
@@ -38,8 +38,17 @@ class ProductService{
             return false;
         }
         try{
-            $request->except('_token');
-            Product::create($request->all());
+            $product = new Product();
+            $product->name=$request->name;
+            $product->content=$request->content;
+            $product->menu_id=$request->menu_id;
+            $product->hang_id=$request->hang_id;
+            $product->price=$request->price;
+            $product->price_sale=$request->price_sale;
+            $product->active=$request->active;
+            $product->thumb=$request->thumb;
+            $product->product_quantity=$request->quantity;
+            $product->save();
             Session::flash('success','Thêm sản phẩm thành công');
         }catch(\Exception $err){
             Session::flash('error','Thêm sản phẩm lỗi');
@@ -53,14 +62,22 @@ class ProductService{
         return Product::with('menu')->orderByDesc('id')->paginate(10);
     }
     
-    public function update($request,$product){
+    public function update($request,$id){
         $isValidPrice = $this->isValidPrice($request);
         if($isValidPrice===false){
             return false;
         }
-
         try{
-            $product->fill($request->input());
+            $product = Product::find($id);
+            $product->name=$request->name;
+            $product->content=$request->content;
+            $product->menu_id=$request->menu_id;
+            $product->hang_id=$request->hang_id;
+            $product->price=$request->price;
+            $product->price_sale=$request->price_sale;
+            $product->active=$request->active;
+            $product->thumb=$request->thumb;
+            $product->product_quantity=$request->quantity;
             $product->save();
             Session::flash('success','Cập nhật thành công');
         }catch(Exception $err){
@@ -85,7 +102,7 @@ class ProductService{
         return Product::where('id', $id)
         ->where('active',1)
         ->with('menu')
-        ->with('hang')
+        ->with('hang','tbl_image_product') 
         ->firstOrFail();
     }
 

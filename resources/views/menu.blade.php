@@ -1,6 +1,9 @@
 @extends('layout.home')
 
 @section('content')
+<br>
+<br>
+
     <div class="bg0 m-t-23 p-b-140 p-t-40">
         <div class="container">
             <div class="flex-w flex-sb-m p-b-52">
@@ -34,7 +37,7 @@
                             <form action="/danh-muc/{{ $menus->id }}-{{ Str::slug($menus->name)}}.html" method="GET">
                                 <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search"
                                     id="search" placeholder="Search">
-
+                            </form>
                         </div>
                     </form>
                 </div>
@@ -106,7 +109,7 @@
                             </ul>
                         </div>
 
-                        <div class="filter-col3 p-r-15 p-b-27">
+                        {{-- <div class="filter-col3 p-r-15 p-b-27">
                             <div class="mtext-102 cl2 p-b-15">
                                 Color
                             </div>
@@ -205,7 +208,7 @@
                                     Crafts
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

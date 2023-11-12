@@ -15,7 +15,9 @@
                 <img src="/template/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                @if (!empty($admin->name))
+                    <a href="#" class="d-block">{{ $admin->name }}</a>
+                @endif
             </div>
         </div>
 
@@ -167,6 +169,52 @@
                             <a href="/admin/customers" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách đơn hàng</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa fa-tag fa-lg"></i>
+                        <p>
+                            Coupon
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('coupon.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm Coupon</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('coupon.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách Coupon</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-image"></i>
+                        <p>
+                            Hình ảnh sản phẩm
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('image.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm hình ảnh</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('image.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách hình ảnh</p>
                             </a>
                         </li>
                     </ul>

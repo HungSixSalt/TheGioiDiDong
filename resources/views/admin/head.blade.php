@@ -19,7 +19,7 @@
         display: none;
     }
 </style>
-@yield('head')
+{{-- @yield('head') --}}
 <script nonce="fa23df80-f7bd-4e9e-b88e-260b43167161">
     (function(w, d) {
         ! function(U, V, W, X) {

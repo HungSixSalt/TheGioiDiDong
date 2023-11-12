@@ -39,14 +39,13 @@
                     @endforeach
                 </select>
             </div>
-
             <div class="form-group">
-                <label>Mô tả</label>
-                <textarea name="description" class="form-control">{{$product->description}}</textarea>
+                <label for="quantity">Số lượng</label>
+                <input type="number" name="quantity" value="{{$product->product_quantity}}" class="form-control" >
             </div>
 
             <div class="form-group">
-                <label>Mô tả chi tiết</label>
+                <label>Mô tả</label>
                 <textarea name="content" id="content" class="form-control">{{$product->content}}</textarea>
             </div>
 

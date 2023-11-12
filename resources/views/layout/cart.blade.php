@@ -1,6 +1,6 @@
 <div class="wrap-header-cart js-panel-cart">
     <div class="s-full js-hide-cart"></div>
-
+   
     <div class="header-cart flex-col-l p-l-65 p-r-25">
         <div class="header-cart-title flex-w flex-sb-m p-b-8">
             <span class="mtext-103 cl2">
@@ -16,30 +16,29 @@
             @php
                 $sumPriceCart = 0;
             @endphp
-            <ul class="header-cart-wrapitem w-full">
-                @if (count($products)>0)
+            <ul class="header-cart-wrapitem w-full" style="padding: 0">
+                @if (session('carts'))
                     @foreach ($products as $key => $product)
                         @php
                             $price = \App\Helpers\Helper::price($product->price,$product->price_sale);
                             $sumPriceCart +=$product->price_sale != 0 ? $product->price : $product->price_sale;
                         @endphp
-                    <li class="header-cart-item flex-w flex-t m-b-12">
-                        <div class="header-cart-item-img">
-                            <img src="{{$product->thumb}}" alt="IMG">
-                        </div>
+                        <li class="header-cart-item flex-w flex-t m-b-12">
+                            <div class="header-cart-item-img">
+                                <img src="{{$product->thumb}}" alt="IMG">
+                            </div>
 
-                        <div class="header-cart-item-txt p-t-8">
-                            <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                {{$product->name}}
-                            </a>
+                            <div class="header-cart-item-txt p-t-8">
+                                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+                                    {{$product->name}}
+                                </a>
 
-                            <span class="header-cart-item-info">
-                                {{$price}}
-                            </span>
-                        </div>
-                    </li>          
+                                <span class="header-cart-item-info">
+                                    {!! $price !!}
+                                </span>
+                            </div>
+                        </li>          
                     @endforeach
-                    
                 @endif
             </ul>
 
@@ -49,14 +48,14 @@
                 </div>
 
                 <div class="header-cart-buttons flex-w w-full">
-                    <a href="/carts"
+                    <a href="/carts" style="width: 275px"
                         class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
                         Vào giỏ hàng
                     </a>
 
-                    <a href="/carts" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+                    {{-- <a href="/carts" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
                         Check Out
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>

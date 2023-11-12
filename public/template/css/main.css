@@ -3798,3 +3798,43 @@ input.num-product::-webkit-inner-spin-button {
   }
 
 }
+
+/* hide option user customer */
+.img_customer{
+  position: relative;
+}
+
+.container_customer{
+  position: absolute;
+  width: 154px;
+  height: auto;
+  display: none;
+  background-color: aliceblue;
+  padding: 10px;
+  border-radius: 10px;
+}
+.container_customer>ul{
+  padding: 0;
+}
+.container_customer>ul>li{
+
+  padding: 5px 0px;
+}
+.option_customer_a_li{
+  padding: 5px 0px;
+  text-decoration: none;
+  color:black;
+}
+.container_customer:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 25px;
+  background-color: transparent;
+  transform: translateY(-100%);
+  left:0px;
+}
+.img_customer:hover  .container_customer{
+  display: block;
+  /* display: flex; */
+}
